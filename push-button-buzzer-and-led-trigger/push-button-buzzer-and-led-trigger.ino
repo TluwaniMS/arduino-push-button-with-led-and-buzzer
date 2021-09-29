@@ -27,21 +27,51 @@ void loop()
       switchOffBuzzer();
       delay(1000);
     }
+    longBlinkRedLed();
   }
   else
   {
+    doubleBlinkRedLed();
   }
 }
 
 
-void doubleBlinkRedLed() {}
+void doubleBlinkRedLed() {
+  for (int repetition = 0; repetition < 2; repetition++) {
+    switchOnRedLed();
+    delay(500);
+    switchOffRedLed();
+    delay(500);
+  };
+}
 
-void switchOnGreenLed() {}
+void longBlinkRedLed() {
+  switchOnRedLed();
+  delay(1000);
+  switchOffRedLed();
+  delay(1000);
+}
 
-void switchOnBuzzer() {}
+void switchOnGreenLed() {
+  digitalWrite(greenLedPin, HIGH);
+}
 
-void switchOffRedLed() {}
+void switchOnBuzzer() {
+  digitalWrite(buzzerPin, HIGH);
+}
 
-void switchOffGreenLed() {}
+void switchOnRedLed() {
+  digitalWrite(redLedPin, HIGH);
+}
 
-void switchOffBuzzer() {}
+void switchOffRedLed() {
+  digitalWrite(redLedPin, LOW);
+}
+
+void switchOffGreenLed() {
+  digitalWrite(greenLedPin, LOW);
+}
+
+void switchOffBuzzer() {
+  digitalWrite(buzzerPin, LOW);
+}
